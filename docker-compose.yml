@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build: 
+      context: . # where is the compose file
+      dockerfile: Dockerfile.dev # look for this file and use it
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app # dot is the current folder to the app folder  
+  tests:
+    build: 
+      constext: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app # dot is the current folder to the app folder 
+    command: ["npm", "run", "test"]       
