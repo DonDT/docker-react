@@ -10,13 +10,14 @@ script: # scripts to run, run the test suits
 
 deploy:  # deployment configuration
   provider: elasticbeanstalk # using elastic bean stalk
-  region:   "eu-west-2" # aws elasticbean stalk dashboard config region
+  region:   "us-east-1" # aws elasticbean stalk dashboard config region
   app: "docker" # aws elastic bean stalk 
   env: "Docker-env" # aws elastic bean stalk 
-  bucket_name: elasticbeanstalk-eu-west-2-143552930191 # go to aws s3, then search elastic bean stalk then copy region name
+  bucket_name: "elasticbeanstalk-us-east-1-143552930191" # go to aws s3, then search elastic bean stalk then copy region name
   bucket_path: "docker" # s3 bucket
   on: 
     branch: master # get the code from the master branch and deploy
 # we need to create  I am  user in aws IAM services to give travis CI access to our application through an api key.
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: "$AWS_SECRET_KEY"
+
